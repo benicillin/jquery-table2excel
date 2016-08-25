@@ -52,7 +52,15 @@
                         if(flag.length >= 1) {
                             tempRows += "<td> </td>" // exclude it!!
                         } else {
-                            tempRows += "<td>" + $(q).html() + "</td>"
+                            var tx = $.trim($(q).html());
+                            if ($.isNumeric(tx) & tx!="")
+                            {
+                                tempRows += "<td>=\"" + tx + "\"</td>";
+
+                            } else {
+                                tempRows += "<td>" + tx + "</td>";
+
+                            }
                         }
                     })
                      
